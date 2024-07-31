@@ -47,16 +47,13 @@ This project uses PostgreSQL as the database management system. The main objecti
 ### Data Modeling
 
 - [Schema](https://github.com/steve-yuan-8276/sql-challenge/blob/main/schema.md)
-- [ERD Figure](https://github.com/steve-yuan-8276/sql-challenge/blob/main/Images/ERD.png)
-- [Schema SQL Scripts](https://github.com/steve-yuan-8276/sql-challenge/blob/main/SQL/erd_solution.sql)
+- [ERD Figure](https://github.com/steve-yuan-8276/SQL_Projects/tree/main/0.Data_modeling_with_SQL/Images)
+- [Schema SQL Scripts](https://github.com/steve-yuan-8276/SQL_Projects/blob/main/0.Data_modeling_with_SQL/SQL/Data_Modeling.sql)
 
 ### Data Analysis
 
-- [Analysis Queries](https://github.com/steve-yuan-8276/sql-challenge/blob/main/SQL/Data_Analysis.sql)
+- [Analysis Queries](https://github.com/steve-yuan-8276/SQL_Projects/blob/main/0.Data_modeling_with_SQL/SQL/Data_Analysis.sql)
 
-## References
 
-- **Table Creation**: [ERD Solution SQL Script](https://github.com/steve-yuan-8276/SQL_Projects/blob/main/0.Data_modeling_with_SQL/erd_solution.sql)
-- **Data Analysis**: [Data Analysis SQL Script](https://github.com/steve-yuan-8276/SQL_Projects/blob/main/0.Data_modeling_with_SQL/Data_Analysis.sql)
 
 
