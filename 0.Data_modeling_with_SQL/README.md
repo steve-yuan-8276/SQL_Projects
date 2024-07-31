@@ -6,8 +6,7 @@ This project uses PostgreSQL as the database management system. The main objecti
 
 ## Repository Structure
 
-\`\`\`plaintext
-.
+```
 ├── README.md
 ├── schema.md
 ├── data
@@ -22,7 +21,7 @@ This project uses PostgreSQL as the database management system. The main objecti
 │   └── Data_Analysis.sql
 └── Images
     └── ERD.png
-\`\`\`
+```
 
 ## Task
 
