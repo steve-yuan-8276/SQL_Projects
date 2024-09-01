@@ -18,3 +18,54 @@ select * from emp_copy_schema;
 select left(name, 4) from employee_copy;
 -- method 2
 select substring(name, 1, 4) from employee_copy;
+
+-- Q4:how to find duplicates in a table?
+select
+    employee_id,
+    count(*) as cnt
+from
+    employee_copy
+group by employee_id
+having count(*) > 1;
+
+-- Q5: how to remove the duplicates in a table?
+delete from employee_copy
+where employee_id not in (
+    select
+        min(employee_id)
+    from
+        employee_copy
+    group by name
+    );
+
+
+
+
+
+DELETE e1
+FROM employee_copy e1
+JOIN (
+    SELECT
+        employee_id,
+        name,
+        ROW_NUMBER() OVER (PARTITION BY employee_id, name ORDER BY employee_id) AS rn
+    FROM
+        employee_copy
+) e2 ON e1.employee_id = e2.employee_id
+     AND e1.name = e2.name
+WHERE e2.rn > 1;
+
+-- test
+INSERT INTO employee_copy (employee_id, name) VALUES
+(6, 'Alice Johnson'),
+(7, 'Bob Smith'),
+(8, 'Charlie Brown'),
+(9, 'Diana Prince'),
+(10, 'Edward Norton'),
+(11, 'Fiona Shrek'),
+(12, 'George Jetson'),
+(13, 'Harry Potter')
+
+-- review
+select * from employee_copy;
+
