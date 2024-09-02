@@ -32,28 +32,15 @@ having count(*) > 1;
 delete from employee_copy
 where employee_id not in (
     select
-        min(employee_id)
-    from
-        employee_copy
-    group by name
+        employee_id
+    from (
+            select
+                min(employee_id) as employee_id
+            from
+                employee_copy
+            group by name
+         ) as sub_query
     );
-
-
-
-
-
-DELETE e1
-FROM employee_copy e1
-JOIN (
-    SELECT
-        employee_id,
-        name,
-        ROW_NUMBER() OVER (PARTITION BY employee_id, name ORDER BY employee_id) AS rn
-    FROM
-        employee_copy
-) e2 ON e1.employee_id = e2.employee_id
-     AND e1.name = e2.name
-WHERE e2.rn > 1;
 
 -- test
 INSERT INTO employee_copy (employee_id, name) VALUES
