@@ -1,0 +1,31 @@
+# Assuming there are two table: Table A has two clolumns, Table B has 3 clolumns, could we combile them by using Union directly?
+
+In SQL, the `UNION` operator requires the result sets of the `SELECT` statements to have the **same number of columns** and **compatible data types** in corresponding positions.
+
+### If **Table A** and **Table B** have different numbers of columns, you **cannot directly use `UNION`**. However, there are ways to make them compatible:
+
+### Solutions:
+
+1. **Select only matching columns from both tables**:
+   If the tables have extra columns, you can select only the columns that match in both tables.
+   ```sql
+   SELECT col1, col2
+   FROM TableA
+   UNION
+   SELECT col1, col2
+   FROM TableB;
+   ```
+
+2. **Add `NULL` or default values to the table with fewer columns**:
+   You can add `NULL` or default values to the table with fewer columns to match the column count of the other table.
+   ```sql
+   SELECT col1, col2, NULL AS col3
+   FROM TableA
+   UNION
+   SELECT col1, col2, col3
+   FROM TableB;
+   ```
+
+### Key Points:
+- **Same number of columns**: Both tables must have the same number of columns in their `SELECT` statements.
+- **Data type compatibility**: The data types of the columns in the same positions must be compatible for the `UNION` to work.
